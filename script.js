@@ -6,7 +6,7 @@ function showLoader() {
         loader.classList.remove('visible');
         loader.innerHTML = '';
         getMoreData();
-    }, 2500);
+    }, 2000);
 }
 
 function toggleImageLike() {
@@ -163,7 +163,7 @@ function createGalleryItems(data) {
     gallery.innerHTML += `${items}`;
 }
 
-let query = 'skyline';
+let query = 'skyscraper';
 let page = 1;
 const perPage = 15;
 const accessKey = 'FdqySA3FQEWYn4fXMp_2hUfFpYH8vjw0y7mGHUHzAps';
@@ -172,7 +172,8 @@ async function getData(url) {
     try {
         const res = await fetch(url);
         const data = await res.json();
-        createGalleryItems(data.results);
+        const items = data.results;
+        createGalleryItems(items);
     } catch {
         console.log('Error fetching images');
     }
