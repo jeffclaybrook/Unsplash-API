@@ -108,7 +108,7 @@ function openDialog(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
                 </button>
             </div>
         </div>
-        <h3>Likes ${e}</h3>
+        <h3>${e} likes</h3>
         <h4><strong>${m}</strong> ${a}</h4>
         <h5>${c}</h5>
     </div>
