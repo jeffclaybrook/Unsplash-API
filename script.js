@@ -163,7 +163,7 @@ function createGalleryItems(data) {
     gallery.innerHTML += `${items}`;
 }
 
-let query = 'dogs';
+let query = 'skyline';
 let page = 1;
 const perPage = 15;
 const accessKey = 'FdqySA3FQEWYn4fXMp_2hUfFpYH8vjw0y7mGHUHzAps';
