@@ -80,12 +80,12 @@ button {
 .item-footer .flex {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .25rem;
 }
 
 .item-footer .flex img {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.875rem;
+    height: 1.875rem;
     display: block;
     object-fit: cover;
     border-radius: 50%;
@@ -98,9 +98,10 @@ button {
 }
 
 .item-footer .column h3 {
-    font-size: .925rem;
+    font-size: .875rem;
     font-weight: 500;
     color: #ffffff;
+    line-height: 1;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -110,9 +111,15 @@ button {
 }
 
 .item-footer .column p {
-    font-size: .925rem;
+    font-size: .875rem;
     font-weight: 300;
     color: #ffffff;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .loader {
@@ -316,22 +323,40 @@ dialog.expanded .dialog-container {
 
 .dialog-footer {
     padding: .5rem;
+    position: relative;
 }
 
 .dialog-footer .row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: .5rem;
 }
 
-.dialog-footer .row button {
+.dialog-footer .row .column {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.dialog-footer .row i {
+.dialog-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-footer button .material-symbols-rounded {
+    color: #202124;
+    font-variation-settings: 'wght' 300;
+}
+
+.dialog-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-footer a .material-symbols-rounded {
     color: #202124;
     font-variation-settings: 'wght' 300;
 }
@@ -389,12 +414,12 @@ dialog.expanded .dialog-container {
     width: min-content;
     white-space: nowrap;
     pointer-events: none;
-    z-index: 1001;
+    z-index: 10002;
 }
 
-.toast.visible {
+.toast.active {
     opacity: 1;
-    bottom: 1.5rem;
+    bottom: 2rem;
 }
 
 @media screen and (max-width: 768px) {
