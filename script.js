@@ -9,7 +9,6 @@ function showLoader() {
     }, 2500);
 }
 
-
 function toggleImageLike() {
     const button = document.querySelector('.like-btn');
     const icon = button.querySelector('.material-symbols-rounded');
@@ -19,9 +18,8 @@ function toggleImageLike() {
     icon.style.fontVariationSettings = `'FILL' 0, 'wght' 300`
 }
 
-
-function downloadImage(image) {
-    fetch(image)
+function downloadImage(j) {
+    fetch(j)
     .then(res => res.blob())
     .then(blob => {
         const body = document.body;
@@ -34,12 +32,11 @@ function downloadImage(image) {
     }).catch(() => console.log('Failed to download image'));
 }
 
-
-function showToast(hex) {
+function showToast(k) {
     const toast = document.querySelector('.toast');
     toast.classList.add('active');
     toast.setAttribute('aria-hidden', 'false');
-    toast.innerText = `Copied HEX code: ${hex}`;
+    toast.innerText = `Copied HEX code: ${k}`;
     setTimeout(() => {
         toast.classList.remove('active');
         toast.setAttribute('aria-hidden', 'true');
@@ -47,13 +44,10 @@ function showToast(hex) {
     }, 2000);
 }
 
-
 function copyPalette(palette) {
-    const color = palette;
-    navigator.clipboard.writeText(color)
-    .then(() => showToast(color))
+    navigator.clipboard.writeText(palette)
+    .then(() => showToast(palette))
 }
-
 
 function closeDialog() {
     const body = document.body;
@@ -64,24 +58,7 @@ function closeDialog() {
     dialog.querySelector('.dialog-container').innerHTML = '';
 }
 
-
-function openDialog(
-    alt_description,
-    color,
-    created_at,
-    height,
-    likes,
-    width,
-    regular,
-    raw,
-    first_name,
-    last_name,
-    location,
-    name,
-    username,
-    medium,
-    html
-) {
+function openDialog(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
     const body = document.body;
     const dialog = document.querySelector('dialog');
     body.style.overflow = 'hidden';
@@ -89,11 +66,11 @@ function openDialog(
     dialog.classList.add('expanded');
     dialog.querySelector('.dialog-container').innerHTML += `
     <div class="dialog-header">
-        <a href="${html}" target="_blank" aria-label="View portfolio">
-            <img src="${medium}" alt="${name}">
+        <a href="${o}" target="_blank" aria-label="View portfolio">
+            <img src="${n}" alt="${l}">
             <div class="column">
-                <h3>${first_name} ${last_name}</h3>
-                <p>${location}</p>
+                <h3>${i} ${j}</h3>
+                <p>${k}</p>
             </div>
         </a>
         <button aria-label="Close image" onclick="closeDialog()">
@@ -101,7 +78,7 @@ function openDialog(
         </button>
     </div>
     <div class="dialog-content">
-        <img alt="${alt_description}" style="aspect-ratio: ${width} / ${height}" src="${regular}">
+        <img alt="${a}" style="aspect-ratio: ${f} / ${d}" src="${g}">
     </div>
     <div class="dialog-footer">
         <div class="row">
@@ -111,13 +88,13 @@ function openDialog(
                 </button>
             </div>
             <div class="column">
-                <a href="${raw}" target="_blank" aria-label="Open image in new tab">
+                <a href="${h}" target="_blank" aria-label="Open image in new tab">
                     <i class="material-symbols-rounded">open_in_new</i>
                 </a>
             </div>
             <div class="column">
-                <button onclick="copyPalette('${color}')" aria-label="Copy HEX code">
-                    <i class="material-symbols-rounded" style="color: ${color}">launcher_assistant_on</i>
+                <button onclick="copyPalette('${b}')" aria-label="Copy HEX code">
+                    <i class="material-symbols-rounded" style="color: ${b}">launcher_assistant_on</i>
                 </button>
             </div>
             <div class="column">
@@ -126,41 +103,22 @@ function openDialog(
                 </button>
             </div>
             <div class="column">
-                <button onclick="downloadImage('${regular}')" aria-label="Download image">
+                <button onclick="downloadImage('${g}')" aria-label="Download image">
                     <i class="material-symbols-rounded">download</i>
                 </button>
             </div>
         </div>
-        <h3>Likes ${likes}</h3>
-        <h4><strong>${username}</strong> ${alt_description}</h4>
-        <h5>${created_at}</h5>
+        <h3>Likes ${e}</h3>
+        <h4><strong>${m}</strong> ${a}</h4>
+        <h5>${c}</h5>
     </div>
     `;
 }
 
-
 function createGalleryItems(data) {
     const items = data.map(item => {
-        const {
-            alt_description,
-            color,
-            created_at,
-            height,
-            likes,
-            width,
-            urls,
-            user
-        } = item;
-        const {
-            first_name,
-            last_name,
-            location,
-            name,
-            username,
-            profile_image,
-            links
-        } = user;
-
+        const { alt_description, color, created_at, height, likes, width, urls, user } = item;
+        const { first_name, last_name, location, name, username, profile_image, links } = user;
         const { regular, raw } = urls;
         const { medium } = profile_image;
         const { html } = links;
@@ -170,14 +128,30 @@ function createGalleryItems(data) {
         const newLocation = location == null ? 'Austin, TX' : location;
         const newLastName = last_name == null ? '' : last_name;
 
+        const a = alt_description;
+        const b = color;
+        const c = formattedDate;
+        const d = height;
+        const e = formattedLikes;
+        const f = width;
+        const g = regular;
+        const h = raw;
+        const i = first_name;
+        const j = newLastName;
+        const k = newLocation;
+        const l = name;
+        const m = username;
+        const n = medium;
+        const o = html;
+
         return `
-        <li class="item" style="background-image: url('${regular}')" onclick="openDialog('${alt_description}', '${color}', '${formattedDate}', '${height}', '${formattedLikes}', '${width}', '${regular}', '${raw}', '${first_name}', '${newLastName}', '${newLocation}', '${name}', '${username}', '${medium}', '${html}')">
+        <li class="item" style="background-image: url('${g}')" onclick="openDialog('${a}', '${b}', '${c}', '${d}', '${e}', '${f}', '${g}', '${h}', '${i}', '${j}', '${k}', '${l}', '${m}', '${n}', '${o}')">
             <div class="item-footer">
                 <div class="flex">
-                    <img src="${medium}" alt="${name}">
+                    <img src="${n}" alt="${l}">
                     <div class="column">
-                        <h3>${first_name} ${newLastName}</h3>
-                        <p>${username}</p>
+                        <h3>${i} ${j}</h3>
+                        <p>${m}</p>
                     </div>
                 </div>
             </div>
@@ -189,12 +163,10 @@ function createGalleryItems(data) {
     gallery.innerHTML += `${items}`;
 }
 
-
 let query = 'dogs';
 let page = 1;
 const perPage = 15;
 const accessKey = 'FdqySA3FQEWYn4fXMp_2hUfFpYH8vjw0y7mGHUHzAps';
-
 
 async function getData(url) {
     try {
@@ -206,19 +178,20 @@ async function getData(url) {
     }
 }
 
-
 async function getMoreData() {
     page++;
     const url = `https://api.unsplash.com/search/photos/?client_id=${accessKey}&query=${query}&page=${page}&per_page=${perPage}`;
     getData(url);
 }
 
-
 getData(`https://api.unsplash.com/search/photos/?client_id=${accessKey}&query=${query}&page=${page}&per_page=${perPage}`)
 
-
 window.addEventListener('scroll', () => {
-    if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 30) {
+    if (
+        window.scrollY +
+        window.innerHeight >=
+        document.body.offsetHeight - 15.5
+    ) {
         showLoader();
     }
 })

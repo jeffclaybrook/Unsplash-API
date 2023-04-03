@@ -98,7 +98,7 @@ button {
 }
 
 .item-footer .column h3 {
-    font-size: .875rem;
+    font-size: .975rem;
     font-weight: 500;
     color: #ffffff;
     line-height: 1;
@@ -111,7 +111,7 @@ button {
 }
 
 .item-footer .column p {
-    font-size: .875rem;
+    font-size: .925rem;
     font-weight: 300;
     color: #ffffff;
     display: -webkit-box;
@@ -286,14 +286,14 @@ dialog.expanded .dialog-container {
 }
 
 .dialog-header a h3 {
-    font-size: .925rem;
+    font-size: .975rem;
     font-weight: 500;
     color: #202124;
     letter-spacing: .02em;
 }
 
 .dialog-header a p {
-    font-size: .925rem;
+    font-size: .975rem;
     font-weight: 400;
     color: #5f6368;
     letter-spacing: .02em;
@@ -362,7 +362,7 @@ dialog.expanded .dialog-container {
 }
 
 .dialog-footer h3 {
-    font-size: .925rem;
+    font-size: .975rem;
     font-weight: 500;
     color: #202124;
     letter-spacing: .02em;
@@ -370,7 +370,7 @@ dialog.expanded .dialog-container {
 }
 
 .dialog-footer h4 {
-    font-size: .925rem;
+    font-size: .975rem;
     font-weight: 400;
     color: #5f6368;
     letter-spacing: .02em;
@@ -389,7 +389,7 @@ dialog.expanded .dialog-container {
 }
 
 .dialog-footer h5 {
-    font-size: .825rem;
+    font-size: .875rem;
     font-weight: 500;
     color: #5f6368;
     letter-spacing: .02em;
