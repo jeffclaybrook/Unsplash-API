@@ -54,6 +54,7 @@ button {
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: 15vw;
     gap: .1275rem;
+    margin-bottom: 2.5rem;
 }
 
 .item {
