@@ -1,3 +1,39 @@
+const themeKey = 'themeKey';
+
+function toggleTheme() {
+    theme.value = theme.value === 'light' ? 'dark' : 'light'
+    setTheme()
+}
+
+function getTheme() {
+    return localStorage.getItem(themeKey) ?
+    localStorage.getItem(themeKey) :
+    window.matchMedia('(prefers-color-scheme: dark)').matches ?
+    'dark' :
+    'light'
+}
+
+function setTheme() {
+    localStorage.setItem(themeKey, theme.value);
+    updateTheme()
+}
+
+function updateTheme() {
+    document.firstElementChild.setAttribute('data-theme', theme.value);
+    document.getElementById('theme-btn')?.setAttribute('aria-label', theme.value)
+}
+
+const theme = { value: getTheme() }
+
+window.onload = () => updateTheme();
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches: isDark }) => {
+    theme.value = isDark ?
+    'dark' :
+    'light';
+    setTheme()
+})
+
 function showLoader() {
     const loader = document.querySelector('.loader');
     loader.classList.add('visible');
@@ -36,7 +72,7 @@ function showToast(k) {
     const toast = document.querySelector('.toast');
     toast.classList.add('active');
     toast.setAttribute('aria-hidden', 'false');
-    toast.innerText = `Copied HEX code: ${k}`;
+    toast.innerText = `Copied ${k}`;
     setTimeout(() => {
         toast.classList.remove('active');
         toast.setAttribute('aria-hidden', 'true');
@@ -47,6 +83,11 @@ function showToast(k) {
 function copyPalette(palette) {
     navigator.clipboard.writeText(palette)
     .then(() => showToast(palette))
+}
+
+function copyUrl(url) {
+    navigator.clipboard.writeText(url)
+    .then(() => showToast(url));
 }
 
 function closeDialog() {
@@ -94,12 +135,12 @@ function openDialog(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
             </div>
             <div class="column">
                 <button onclick="copyPalette('${b}')" aria-label="Copy HEX code">
-                    <i class="material-symbols-rounded" style="color: ${b}">launcher_assistant_on</i>
+                    <i class="material-symbols-rounded">palette</i>
                 </button>
             </div>
             <div class="column">
-                <button aria-label="Share image">
-                    <i class="material-symbols-rounded">send</i>
+                <button onclick="copyUrl('${h}')" aria-label="Copy image URL">
+                    <i class="material-symbols-rounded">content_copy</i>
                 </button>
             </div>
             <div class="column">
